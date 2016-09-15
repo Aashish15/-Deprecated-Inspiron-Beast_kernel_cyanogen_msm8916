@@ -486,11 +486,19 @@ u32 ip_idents_reserve(u32 hash, int segs)
 
 	if (old != now && cmpxchg(&bucket->stamp32, old, now) == old) {
 		u64 x = prandom_u32();
+<<<<<<< HEAD
 
 		x *= (now - old);
 		delta = (u32)(x >> 32);
 	}
 
+=======
+
+		x *= (now - old);
+		delta = (u32)(x >> 32);
+	}
+
+>>>>>>> v3.10.103
 	return atomic_add_return(segs + delta, &bucket->id) - segs;
 }
 EXPORT_SYMBOL(ip_idents_reserve);

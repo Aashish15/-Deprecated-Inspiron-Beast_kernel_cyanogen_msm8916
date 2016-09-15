@@ -110,6 +110,7 @@ static ssize_t show_time_in_state(struct cpufreq_policy *policy, char *buf)
 		len += sprintf(buf + len, "%u %llu\n", stat->freq_table[i],
 			(unsigned long long)
 			jiffies_64_to_clock_t(stat->time_in_state[i]));
+<<<<<<< HEAD
 
 	}
 	return len;
@@ -201,6 +202,8 @@ static ssize_t show_all_time_in_state(struct kobject *kobj,
 						"N/A\t\t");
 			}
 		}
+=======
+>>>>>>> v3.10.103
 	}
 
 out:

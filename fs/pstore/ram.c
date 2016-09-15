@@ -117,8 +117,11 @@ static int ramoops_pstore_open(struct pstore_info *psi)
 	cxt->dump_read_cnt = 0;
 	cxt->console_read_cnt = 0;
 	cxt->ftrace_read_cnt = 0;
+<<<<<<< HEAD
 	cxt->pmsg_read_cnt = 0;
 
+=======
+>>>>>>> v3.10.103
 	return 0;
 }
 

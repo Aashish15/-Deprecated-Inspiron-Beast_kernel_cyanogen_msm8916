@@ -2220,10 +2220,17 @@ again:
 				sk_peek_offset_fwd(sk, chunk);
 				skip -= chunk;
 			}
+<<<<<<< HEAD
 
 			if (UNIXCB(skb).fp)
 				break;
 
+=======
+
+			if (UNIXCB(skb).fp)
+				break;
+
+>>>>>>> v3.10.103
 			last = skb;
 			unix_state_lock(sk);
 			skb = skb_peek_next(skb, &sk->sk_receive_queue);

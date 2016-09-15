@@ -2019,6 +2019,7 @@ unsigned int vb2_poll(struct vb2_queue *q, struct file *file, poll_table *wait)
 
 	/*
 	 * There is nothing to wait for if the queue isn't streaming.
+<<<<<<< HEAD
 	 */
 	if (!vb2_is_streaming(q))
 		return res | POLLERR;
@@ -2027,6 +2028,16 @@ unsigned int vb2_poll(struct vb2_queue *q, struct file *file, poll_table *wait)
 	 * return POLLERR as well. This only affects capture queues, output
 	 * queues will always initialize waiting_for_buffers to false.
 	 */
+=======
+	 */
+	if (!vb2_is_streaming(q))
+		return res | POLLERR;
+	/*
+	 * For compatibility with vb1: if QBUF hasn't been called yet, then
+	 * return POLLERR as well. This only affects capture queues, output
+	 * queues will always initialize waiting_for_buffers to false.
+	 */
+>>>>>>> v3.10.103
 	if (q->waiting_for_buffers)
 		return res | POLLERR;
 

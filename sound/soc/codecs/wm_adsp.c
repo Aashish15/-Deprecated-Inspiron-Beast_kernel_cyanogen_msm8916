@@ -3121,6 +3121,7 @@ int wm_adsp_stream_start(struct wm_adsp *dsp)
 	if (ret < 0)
 		return ret;
 
+<<<<<<< HEAD
 	ret = wm_adsp_host_buffer_write(dsp,
 					HOST_BUFFER_FIELD(high_water_mark),
 					dsp->capt_watermark);
@@ -3130,6 +3131,15 @@ int wm_adsp_stream_start(struct wm_adsp *dsp)
 	adsp_dbg(dsp, "Set watermark to %u\n", dsp->capt_watermark);
 
 	return 0;
+=======
+out_fw:
+	regmap_async_complete(regmap);
+	release_firmware(firmware);
+	wm_adsp_buf_free(&buf_list);
+out:
+	kfree(file);
+	return ret;
+>>>>>>> v3.10.103
 }
 EXPORT_SYMBOL_GPL(wm_adsp_stream_start);
 

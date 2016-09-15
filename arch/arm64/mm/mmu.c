@@ -598,6 +598,7 @@ void __init paging_init(void)
 
 	/* Ensure the zero page is visible to the page table walker */
 	dsb(ishst);
+	dsb();
 
 	/*
 	 * TTBR0 is only used for the identity mapping at this stage. Make it

@@ -410,6 +410,7 @@ static int get_v4l2_buffer32(struct v4l2_buffer *kp, struct v4l2_buffer32 __user
 					&up->timestamp.tv_usec))
 			return -EFAULT;
 
+<<<<<<< HEAD
 	if (V4L2_TYPE_IS_PRIVATE(kp->type)) {
 		compat_long_t tmp;
 
@@ -420,6 +421,8 @@ static int get_v4l2_buffer32(struct v4l2_buffer *kp, struct v4l2_buffer32 __user
 		kp->m.userptr = (unsigned long)compat_ptr(tmp);
 	}
 
+=======
+>>>>>>> v3.10.103
 	if (V4L2_TYPE_IS_MULTIPLANAR(kp->type)) {
 		num_planes = kp->length;
 		if (num_planes == 0) {
@@ -504,11 +507,14 @@ static int put_v4l2_buffer32(struct v4l2_buffer *kp, struct v4l2_buffer32 __user
 		put_user(kp->reserved2, &up->reserved2) ||
 		put_user(kp->reserved, &up->reserved) ||
 		put_user(kp->length, &up->length))
+<<<<<<< HEAD
 			return -EFAULT;
 
 	if (V4L2_TYPE_IS_PRIVATE(kp->type)) {
 		if (put_user(kp->length, &up->length) ||
 				put_user(kp->m.userptr, &up->m.userptr))
+=======
+>>>>>>> v3.10.103
 			return -EFAULT;
 	}
 
@@ -736,6 +742,7 @@ static int put_v4l2_ext_controls32(struct v4l2_ext_controls *kp, struct v4l2_ext
 struct v4l2_event32 {
 	__u32				type;
 	union {
+<<<<<<< HEAD
 
 		struct v4l2_event_vsync		vsync;
 		struct v4l2_event_ctrl		ctrl;
@@ -743,6 +750,9 @@ struct v4l2_event32 {
 
 		compat_s64		value64;
 
+=======
+		compat_s64		value64;
+>>>>>>> v3.10.103
 		__u8			data[64];
 	} u;
 	__u32				pending;
